@@ -42,7 +42,7 @@ router.get('/:id', async (req, res, next) => {
 
 router.patch('/:id', async (req, res, next) => {
 
-    const { params: { id }, body } = req; //getting id from req param 
+    const { params: { id }, body } = req; 
     try {
         const blogs = await editOne(id, body);
         res.json(blogs);
