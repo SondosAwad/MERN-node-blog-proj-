@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
-const { getAll } = require("./controllers/blog.js");
+
 
 
 
@@ -14,14 +14,6 @@ app.use(express.json());
 
 app.use('/', routes);
 
-app.get('/', async (req, res, next) => {
-    try {
-        const blogs = await getAll();
-        res.json(blogs);
-    } catch (e) {
-        next(e);
-    }
-});
 
 
 
