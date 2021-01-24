@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --inspect index.js",
-    "test": "node index.js"
+    "start": "node index.js",
+    "test": "node index.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm"
   },
   "author": "Sondos",
   "license": "ISC",
@@ -18,5 +19,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
+  },
+  "engines": {
+    "node": "14.15.3"
   }
+    
 }
