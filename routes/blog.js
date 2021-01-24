@@ -5,7 +5,7 @@ const multer = require('multer');
 const path = require('path');
 
 
-router.post('/', async (req, res, next) => { //create
+router.post('/', async (req, res, next) => {
     const { body, user: { id } } = req;
     try {
         const newBlog = await create({ ...body, author: id });
@@ -28,12 +28,9 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/:id', async (req, res, next) => {
-    //function returns one user
     const id = req.params.id;
-    // const { params: { id } } = req; //getting id from req param 
     try {
-        const blogs = await getById(id);
-        //res.send("hello user");
+
         res.json(blogs);
     } catch (e) {
         next(e);
@@ -48,7 +45,6 @@ router.patch('/:id', async (req, res, next) => {
     const { params: { id }, body } = req; //getting id from req param 
     try {
         const blogs = await editOne(id, body);
-        //res.send("hello edit user");
         res.json(blogs);
     } catch (e) {
         next(e);
@@ -58,7 +54,7 @@ router.patch('/:id', async (req, res, next) => {
 
 router.delete('/delete/:id', async (req, res, next) => {
     const id = req.params.id;
-    // const { params: { id } } = req; //getting id from req param 
+
     try {
         const blogs = await deleteOne(id);
         res.json(blogs);
@@ -118,7 +114,7 @@ const storage = multer.diskStorage({
         cb(null, 'images');
     },
 
-    
+
     filename: function (req, file, cb) {
         cb(null, file.originalname + '-' + Date.now() + path.extname(file.originalname));
     }

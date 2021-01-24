@@ -1,13 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-//var imgPath = '/path/yourimage.png';
-//var a = new A;
-// a.img.data = fs.readFileSync(imgPath);
-// a.img.contentType = 'image/png';
-// a.save(function (err, a) {
-//   if (err) throw err;
-
 const blogSchema = new Schema({
     title: {
         type: String,
@@ -17,7 +10,6 @@ const blogSchema = new Schema({
     },
 
     body: String,
-    //img: { data: Buffer, contentType: String },
     author: String,
     tag: [String],
 
@@ -31,7 +23,7 @@ const blogSchema = new Schema({
     photo: String,
 
 });
-const Blog = mongoose.model('Blog', blogSchema); //creating collection //mounting model ////attach
-// ready to go!
+const Blog = mongoose.model('Blog', blogSchema);
 
-module.exports = Blog; //model
+
+module.exports = Blog; 

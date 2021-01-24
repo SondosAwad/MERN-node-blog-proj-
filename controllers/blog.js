@@ -1,10 +1,9 @@
-const Blog = require("../models/Blog.js");//mongoose
+const Blog = require("../models/Blog.js");
 
 const create = (blog) =>
     Blog.create(blog);
 
 const getAll = (query) =>
-    //calling db to call all blogs
     Blog.find(query).exec();
 
 const getById = (id) =>
