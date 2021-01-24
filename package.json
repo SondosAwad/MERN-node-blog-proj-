@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "node index.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sondos",
   "license": "ISC",
