@@ -18,7 +18,7 @@ router.post('/', async (req, res, next) => {
 
 
 router.get('/', async (req, res, next) => {
-
+    const { user: { id } } = req;
     try {
         const blogs = await getAll({ author: id });
         res.json(blogs);
@@ -30,7 +30,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
     const id = req.params.id;
     try {
-
+        const blogs = await getById(id);
         res.json(blogs);
     } catch (e) {
         next(e);
@@ -42,7 +42,7 @@ router.get('/:id', async (req, res, next) => {
 
 router.patch('/:id', async (req, res, next) => {
 
-    const { params: { id }, body } = req; 
+    const { params: { id }, body } = req;
     try {
         const blogs = await editOne(id, body);
         res.json(blogs);
